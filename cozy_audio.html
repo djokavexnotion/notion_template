@@ -19,7 +19,7 @@
 body {
   font-family: Helvetica, Arial;
   margin: 0;
-  background-color: #75BB99;
+  background-color: #fff;
 }
 
 #app-cover {
@@ -27,24 +27,13 @@ body {
   top: 50%;
   right: 0;
   left: 0;
-  width: 430px;
+  width: 330px;
   height: 100px;
   margin: -4px auto;
 }
 
 #bg-artwork {
-  position: fixed;
-  top: -30px;
-  right: -30px;
-  bottom: -30px;
-  left: -30px;
-  background-image: url("https://raw.githubusercontent.com/himalayasingh/music-player-1/master/img/_1.jpg");
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: 50%;
-  filter: blur(40px);
-  -webkit-filter: blur(40px);
-  z-index: 1;
+
 }
 
 #bg-layer {
@@ -69,7 +58,7 @@ body {
   top: 0;
   right: 15px;
   left: 15px;
-  padding: 13px 22px 10px 184px;
+  padding: 13px 22px 10px 96px;
   background-color: #D9F3E4;
   border-radius: 15px 15px 0 0;
   transition: 0.3s ease top;
@@ -173,7 +162,7 @@ body {
 #player-content {
   position: relative;
   height: 100%;
-  background-color: #D9F3E4;
+  background-color: #75BB99;
   box-shadow: 0 30px 80px #656565;
   border-radius: 15px;
   z-index: 2;
@@ -181,10 +170,10 @@ body {
 
 #album-art {
   position: absolute;
-  top: -40px;
-  width: 115px;
-  height: 115px;
-  margin-left: 40px;
+  top: -30px;
+  width: 70px;
+  height: 70px;
+  margin-left: 25px;
   transform: rotateZ(0);
   transition: 0.3s ease all;
   box-shadow: 0 0 0 10px #fff;
@@ -298,7 +287,7 @@ body {
   width: 26px;
   height: 26px;
   padding: 25px;
-  background-color: #D9F3E4;
+  background-color: #75BB99;
   border-radius: 6px;
   cursor: pointer;
 }
