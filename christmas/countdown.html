@@ -1,0 +1,123 @@
+<!-- original : https://codepen.io/sashatran/pen/mOWLLB -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+
+@import url('https://fonts.googleapis.com/css?family=Cookie');
+
+body {
+  background-color: #F24236;
+  width: 100%;
+  font-family: 'Cookie', cursive;
+  overflow: hidden;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+
+}
+
+#days {
+  font-size: 50px;
+  color: #FFF;
+  text-align: center;
+  letter-spacing: 3px;
+}
+
+.drop {
+	position: absolute;
+	top: 0;	
+	z-index: -1;
+  opacity: 0;
+}
+.snow {
+	height: 8px;
+	width: 8px;
+	border-radius: 100%;
+	background-color: #FFF;
+  box-shadow: 0 0 10px #FFF
+}
+
+
+.animate {
+	animation: falling 8.5s infinite ease-in;	
+}
+
+
+@keyframes falling {
+	0% {top: 0; opacity: 1;}
+	100% {top: 1500px; opacity: 0}
+}
+
+
+
+    </style>
+</head>
+<body>
+    <link href="https://fonts.googleapis.com/css?family=Lobster|Roboto:400,700" rel="stylesheet">
+
+<div class="container"> 
+
+  <p id="days"> </p>
+
+</div>
+
+<script>
+
+const myDate = new Date(); 
+const xmas = Date.parse("Dec 25, "+myDate.getFullYear()) 
+const today = Date.parse(myDate) 
+
+const daysToChristmas = Math.round((xmas-today)/(1000*60*60*24)) 
+
+
+if (daysToChristmas == 0) 
+$('#days').text("It's Christmas!! Merry Christmas!");
+
+if (daysToChristmas < 0) 
+$('#days').text("Christmas was "+-1*(daysToChristmas)+" days ago.");
+
+if (daysToChristmas > 0) 
+$('#days').text(daysToChristmas+" days to Christmas!");
+
+//make snow
+snowDrop(150, randomInt(1035, 1280));
+snow(150, 150);
+
+function snow(num, speed) {
+		if (num > 0) {
+			setTimeout(function () {
+				$('#drop_' + randomInt(1, 250)).addClass('animate');
+				num--;
+				snow(num, speed);
+			}, speed);
+		}
+	};
+
+	function snowDrop(num, position) {
+		if (num > 0) {
+			var drop = '<div class="drop snow" id="drop_' + num + '"></div>';
+
+			$('body').append(drop);
+			$('#drop_' + num).css('left', position);
+			num--;
+			snowDrop(num, randomInt(60, 1580));
+		}
+	};
+
+function randomInt(min, max) {
+		return Math.floor(Math.random() * (max - min + 1) + min);
+	};
+  
+</script>
+
+</body>
+</html>
